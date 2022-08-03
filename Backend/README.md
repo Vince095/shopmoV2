@@ -1,9 +1,6 @@
-# Martfury Restfull API - Powerful by Strapi CMS
+# shopMo Restfull API - Powered by Strapi CMS
 
-Author: nouthemes
-Developed: diaryforlife
-
-Homepage: [Nouthemes](https://themeforest.net/user/nouthemes)
+Homepage: [CosmoTECH](https://Cosmotech.agency)
 
 
 ##NOTE
