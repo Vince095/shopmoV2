@@ -68,6 +68,10 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "orders": {
+      "via": "users_permissions_user",
+      "collection": "order"
     }
   }
 }
