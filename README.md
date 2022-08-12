@@ -1,12 +1,37 @@
-# shopMo Restfull API - Powered by Strapi CMS
+﻿# shopmoV2
 
-Homepage: [CosmoTECH](https://Cosmotech.agency)
+### Version 1.2.1
+
+* New: Update Nextjs v12
+
+### Version 2.2.0
+
+* New: Custom hooks
+* New: Latest React & Nextjs (v11.0.x)
+* Updated: Master Layout
+* Remove: un-use stores
+* Remove: unused components
+* Remove: unused layouts
+* Optimize time build & loading
 
 
-##NOTE
-**Strapi 3 doesn't support Node 16**
+### Installation
 
-## Credentials
-Email: admin@admin.com
+```bash
+npm install
+```
 
-Password: Admin@123
+or Yarn
+
+```bash
+yarn install 
+```
+
+### Develope
+
+```bash
+yarn dev 
+```
+#� �s�h�o�p�m�o�V�2�
+�
+�
