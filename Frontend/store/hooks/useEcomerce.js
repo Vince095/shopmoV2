@@ -161,5 +161,9 @@ export default function useEcomerce() {
                 dispatch(setCartItems([]));
             }
         },
+
+        saveShipping: (payload) => {
+            setCookie('shippingInfo', payload, { path: '/' });
+        }
     };
 }

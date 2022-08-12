@@ -4,6 +4,7 @@ export const initalState = {
     wishlistItems: [],
     compareItems: [],
     cartItems: [],
+    shippingInfo: []
 };
 
 function reducer(state = initalState, action) {
@@ -23,6 +24,11 @@ function reducer(state = initalState, action) {
             return {
                 ...state,
                 compareItems: action.payload,
+            };
+       case actionTypes.SET_SHIPPING_INFO_SUCCESS:
+            return {
+                ...state,
+                shippingInfo: action.payload,
             };
         default:
             return state;

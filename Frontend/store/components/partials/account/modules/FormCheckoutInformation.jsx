@@ -1,22 +1,24 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { Form, Input } from 'antd';
 
-class FormCheckoutInformation extends Component {
-    constructor(props) {
-        super(props);
-    }
+const FormCheckoutInformation =() => {
+    
+    const [address, setAddress] = useState()
+    const [city, setCity] = useState()
+    const [postalCode, setPostalCode] = useState()
+    const [phoneNo, setPhoneNo] = useState()
+    const [country, setCountry] = useState()
 
-    handleLoginSubmit = () => {
+   const handleLoginSubmit = () => {
         Router.push('/account/shipping');
     };
 
-    render() {
         return (
             <Form
                 className="ps-form__billing-info"
-                onFinish={this.handleLoginSubmit}>
+                onFinish={handleLoginSubmit}>
                 <h3 className="ps-form__heading">Contact information</h3>
                 <div className="form-group">
                     <Form.Item
@@ -181,7 +183,6 @@ class FormCheckoutInformation extends Component {
                 </div>
             </Form>
         );
-    }
 }
 
 export default FormCheckoutInformation;

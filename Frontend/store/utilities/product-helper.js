@@ -3,6 +3,7 @@ import LazyLoad from 'react-lazyload';
 import { baseUrl } from '~/repositories/Repository';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
+import currency from './currency-helper';
 
 export function formatCurrency(num) {
     if (num !== undefined) {
@@ -57,13 +58,15 @@ export function convertSlugsQueryString(payload) {
 
 export function StrapiProductPriceExpanded(product) {
     let view;
-    const symbol = useSelector(state => state.setting.currency.symbol)
+    const exRate = currency().exRate
+    const symbol = currency().symbol
+    //const symbol = useSelector(state => state.setting.currency.symbol)
     if (product.is_sale === true) {
         view = (
             <p className="ps-product__price sale">
-                {symbol}{formatCurrency(product.price)}
+                {symbol}{(formatCurrency(product.price) * exRate).toFixed(2)}
                 <del className="ml-2">
-                {symbol}{formatCurrency(product.sale_price)}
+                {symbol}{(formatCurrency(product.sale_price) *exRate).toFixed(2)}
                 </del>
                 <small>{((((product.price -product.sale_price)/product.price).toFixed(2)))*100}% off</small>
             </p>
@@ -71,7 +74,7 @@ export function StrapiProductPriceExpanded(product) {
     } else {
         view = (
             <p className="ps-product__price">
-                {symbol}{formatCurrency(product.price)}
+                {symbol}{(formatCurrency(product.price)* exRate).toFixed(2)}
             </p>
         );
     }

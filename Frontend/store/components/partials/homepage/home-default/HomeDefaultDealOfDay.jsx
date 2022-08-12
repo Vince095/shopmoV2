@@ -11,7 +11,7 @@ import useGetProducts from '~/hooks/useGetProducts';
 const HomeDefaultDealOfDay = ({ collectionSlug }) => {
     const { productItems, loading, getProductsByCollection } = useGetProducts();
 
-    useEffect(() => {
+    useEffect(() => { 
         getProductsByCollection(collectionSlug);
     }, [collectionSlug]);
 

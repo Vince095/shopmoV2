@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import { baseUrl } from '~/repositories/Repository';
+import Protected from '~/components/middleware/Protected';
 
 const MyAccount = ()=>{
-    const selectUser = useSelector(state => state.auth.user.data.user)
-    const user = selectUser
-
+    const selectUser =  useSelector(state => state.auth.user.data.user) ;
+    const check = localStorage.getItem('user')
+    const user = selectUser ? selectUser : check;
     
         return (
             
@@ -90,4 +91,4 @@ const MyAccount = ()=>{
         )
      }
 
-export default MyAccount;
+export default Protected(MyAccount);

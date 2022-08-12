@@ -2,6 +2,9 @@ import React from 'react';
 import { DatePicker, Form, Input, Radio } from 'antd';
 
 const FormChangeUserInformation = () => {
+    const userFound = localStorage.getItem('user'); 
+    const user = JSON.parse(userFound).data.user;
+    console.log(user);
     return (
         <form className="ps-form--account-setting">
             <div className="ps-form__header">
@@ -14,6 +17,7 @@ const FormChangeUserInformation = () => {
                         type="text"
                         placeholder="Username or email address"
                     />
+                    
                 </div>
                 <div className="row">
                     <div className="col-sm-6">

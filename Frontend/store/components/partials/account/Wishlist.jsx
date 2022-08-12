@@ -2,10 +2,14 @@ import React, { Component, useEffect } from 'react';
 import { connect } from 'react-redux';
 import useEcomerce from '~/hooks/useEcomerce';
 import ProductCart from '~/components/elements/products/ProductCart';
+import currency from '~/utilities/currency-helper';
 
 const Wishlist = ({ ecomerce }) => {
     const { loading, products, getProducts } = useEcomerce();
     const { addItem, removeItem } = useEcomerce();
+    const symbol = currency().symbol;
+    const exRate = currency().exRate;
+
 
     function handleAddItemToCart(e, product) {
         e.preventDefault();
@@ -53,7 +57,7 @@ const Wishlist = ({ ecomerce }) => {
                                 <td>
                                     <ProductCart product={product} />
                                 </td>
-                                <td className="price">${product.price}</td>
+                                <td className="price">{symbol}{(product.price * exRate).toFixed(2)}</td>
                                 <td>{product.vendor}</td>
                                 <td>
                                     <a

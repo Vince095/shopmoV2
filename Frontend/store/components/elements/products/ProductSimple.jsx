@@ -20,8 +20,8 @@ const ProductSimple = ({ product }) => {
                 <div className="ps-product__content">
                     {title(product)}
                     <div className="ps-product__rating">
-                        <Rating review = {product}/>
-                        <span>{product.ratingCount}</span>
+                        <Rating review = {product.review}/>
+                        <span>{product.review}</span>
                     </div>
                     {price(product)}
                 </div>

@@ -5,6 +5,7 @@ import {
     setCartItemsSuccess,
     setWishlistTtemsSuccess,
     setCompareItemsSuccess,
+    setShippingInfoSuccess
 } from './action';
 
 // new
@@ -32,9 +33,18 @@ function* getCompareItems({ payload }) {
     }
 }
 
+function* getShippingInfo({ payload }) {
+    try {
+        yield put(setShippingInfoSuccess(payload));
+    } catch (err) {
+        console.log(err);
+    }
+}
 export default function* rootSaga() {
     // new
     yield all([takeEvery(actionTypes.SET_WISHLIST_ITEMS, getWishlistItems)]);
     yield all([takeEvery(actionTypes.SET_CART_ITEMS, getCartItems)]);
     yield all([takeEvery(actionTypes.SET_COMPARE_ITEMS, getCompareItems)]);
+    yield all([takeEvery(actionTypes.SET_SHIPPING_INFO, getShippingInfo)]);
+
 }

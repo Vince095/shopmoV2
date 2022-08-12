@@ -9,6 +9,9 @@ export const actionTypes = {
 
     SET_COMPARE_ITEMS: 'SET_COMPARE_ITEMS',
     SET_COMPARE_ITEMS_SUCCESS: 'SET_COMPARE_ITEMS_SUCCESS',
+
+    SET_SHIPPING_INFO: ' SET_SHIPPING_INFO',
+    SET_SHIPPING_INFO_SUCCESS: ' SET_SHIPPING_INFO_SUCCESS'
 };
 
 // new
@@ -34,4 +37,13 @@ export function setCompareItems(payload) {
 
 export function setCompareItemsSuccess(payload) {
     return { type: actionTypes.SET_COMPARE_ITEMS_SUCCESS, payload };
+}
+
+
+export function setShippingInfo(payload) {
+    return { type: actionTypes.SET_SHIPPING_INFO, payload };
+}
+
+export function setShippingInfoSuccess(payload) {
+    return { type: actionTypes.SET_SHIPPING_INFO_SUCCESS, payload };
 }

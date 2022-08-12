@@ -1,10 +1,15 @@
 // currency conversion
+import AuthRepo from "~/repositories/AuthRepository";
 
-const currency = (location) => {
+const currency = location => {
 
-    let data = location;
+    let data = location ;
+   
+    let shipping = 0;
     let exRate = 1,
-        symbol = '$';
+        symbol = '$',
+        tel = '266-5630-1591';
+        
 
     let country = 'Lesotho';    
 
@@ -27,7 +32,8 @@ const currency = (location) => {
     }else if (country === 'Lesotho') {
         exRate = 17;
         symbol = 'M'
-        return {symbol , exRate}
+        shipping = 100;
+        return {symbol , exRate , shipping}
 
     }else if (country === 'South Africa') {
         exRate = 16;

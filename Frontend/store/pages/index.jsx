@@ -13,7 +13,7 @@ import PageContainer from '~/components/layouts/PageContainer';
 
 const HomepageDefaultPage = () => {
     return (
-        <PageContainer title="Multipurpose Marketplace React Ecommerce Template">
+        <PageContainer title="Shop-mo multipurpose ecommerce platform">
             <main id="homepage-1">
                 <HomeDefaultBanner />
                 <SiteFeatures />

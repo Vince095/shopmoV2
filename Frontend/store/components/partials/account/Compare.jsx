@@ -4,11 +4,14 @@ import Link from 'next/link';
 import { Rate } from 'antd';
 import useEcomerce from '~/hooks/useEcomerce';
 import useProduct from '~/hooks/useProduct';
+import currency from '~/utilities/currency-helper';
 
 const Compare = ({ ecomerce }) => {
     const { products, getProducts } = useEcomerce();
     const { addItem, removeItem } = useEcomerce();
     const { thumbnailImage } = useProduct();
+    const symbol = currency().symbol;
+    const exRate = currency().exRate;
 
     function handleAddItemToCart(e, product) {
         e.preventDefault();
@@ -105,10 +108,9 @@ const Compare = ({ ecomerce }) => {
                                             products.map((product) => (
                                                 <td key={product.id}>
                                                     <Rate
-                                                        disabled
+                                                       
                                                         defaultValue={product.review}
                                                     />
-                                                    {console.log(product.review)}
                                                 </td>
                                             ))
                                         ) : (
@@ -123,11 +125,11 @@ const Compare = ({ ecomerce }) => {
                                                     return (
                                                         <td key={product.id}>
                                                             <h4 className="price sale">
-                                                                ${product.price}
+                                                                {symbol}{(product.price* exRate).toFixed(2)}
                                                                 <del>
-                                                                    $
+                                                                    {symbol}
                                                                     {
-                                                                        product.salePrice
+                                                                        (product.salePrice * exRate).toFixed(2)
                                                                     }
                                                                 </del>
                                                             </h4>
@@ -137,8 +139,8 @@ const Compare = ({ ecomerce }) => {
                                                     return (
                                                         <td key={product.id}>
                                                             <h4 className="price">
-                                                                ${' '}
-                                                                {product.price}
+                                                                {symbol}{' '}
+                                                                {(product.price * exRate).toFixed(2)}   
                                                             </h4>
                                                         </td>
                                                     );

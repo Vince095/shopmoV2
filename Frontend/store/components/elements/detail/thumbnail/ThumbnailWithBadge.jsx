@@ -4,6 +4,7 @@ import Lightbox from 'react-image-lightbox';
 import { baseUrl } from '~/repositories/Repository';
 import NextArrow from '~/components/elements/carousel/NextArrow';
 import PrevArrow from '~/components/elements/carousel/PrevArrow';
+import currency from '~/utilities/currency-helper';
 
 const ThumbnailWithBadge = ({ product, vertical = true }) => {
     const galleryCarousel = useRef(null);
@@ -13,6 +14,8 @@ const ThumbnailWithBadge = ({ product, vertical = true }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [photoIndex, setPhotoIndex] = useState(0);
     const [productImages, setProductImages] = useState([]);
+    const symbol = currency().symbol
+    const exRate = currency().exRate
 
     useEffect(() => {
         let images = [];
@@ -161,7 +164,7 @@ const ThumbnailWithBadge = ({ product, vertical = true }) => {
                     </Slider>
                     <div className="ps-product__badge">
                         <span>
-                            Save <br /> $280.00
+                            Save <br /> {symbol}{product.is_sale ? ((product.price  - product.sale_price )* exRate).toFixed(2):  20 }
                         </span>
                     </div>
                 </div>

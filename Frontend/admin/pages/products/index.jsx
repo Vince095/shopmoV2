@@ -18,7 +18,7 @@ const ProductPage = () => {
         <ContainerDefault title="Products">
             <HeaderDashboard
                 title="Products"
-                description="Martfury Product Listing "
+                description="shopmo Product Listing "
             />
             <section className="ps-items-listing">
                 <div className="ps-section__actions">

@@ -6,9 +6,12 @@ import Rating from '~/components/elements/Rating';
 import CountDown from '~/components/elements/CountDown';
 import ThumbnailWithBadge from '~/components/elements/detail/thumbnail/ThumbnailWithBadge';
 import useProduct from '~/hooks/useProduct';
+import currency from '~/utilities/currency-helper';
 
 const ProductDealHot = ({ product }) => {
     const { thumbnailImage, price, badge } = useProduct();
+    const symbol = currency().symbol
+    const exRate = currency().exRate
 
     return (
         <div className="ps-product--detail ps-product--hot-deal">
@@ -30,11 +33,11 @@ const ProductDealHot = ({ product }) => {
                                 <del className="mr-2">
                                     {price(product.sale_price)}
                                 </del>
-                                ${formatCurrency(product.price)}
+                                {symbol}{(formatCurrency(product.price) * exRate).toFixed(2)}
                             </h4>
                         ) : (
                             <h4 className="ps-product__price">
-                                ${formatCurrency(product.price)}
+                                {symbol}{(formatCurrency(product.price) * exRate).toFixed(2)}
                             </h4>
                         )}
                         <div className="ps-product__rating">

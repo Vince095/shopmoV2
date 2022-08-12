@@ -83,6 +83,22 @@ class AuthRepository {
             return response
     }
 
+    //get user location => /user/location
+    async getUserLocation(){
+            
+            const endPoint = 'http://ip-api.com/json';
+            const response = await Repository.get(endPoint)
+                .then((response) => {
+                    if (response.data.length > 0) {
+                        return response.data;
+                    } else {
+                        return null;
+                    }
+                })
+                .catch((error) => ({ error: JSON.stringify(error) }));
+            return response;
+        }
+
 }
 
 export default new AuthRepository();

@@ -39,8 +39,7 @@ const UserInformation = () => {
             icon: 'icon-heart',
         },
     ];
-    const userIsAuthenticated = useSelector(state => state.auth.isLoggedIn) 
-    console.log(userIsAuthenticated)
+    const userIsAuthenticated = useSelector(state => state.auth.isLoggedIn) || false;
     useEffect(()=>{
        
         if (!userIsAuthenticated) {

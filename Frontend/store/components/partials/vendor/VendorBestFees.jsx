@@ -1,6 +1,9 @@
 import React from 'react';
+import currency from '~/utilities/currency-helper';
 
+let symbol = currency().symbol;
 const VendorBestFrees = () => (
+    
     <div className="ps-section--vendor ps-vendor-best-fees">
         <div className="container">
             <div className="ps-section__header">
@@ -14,11 +17,11 @@ const VendorBestFrees = () => (
                 </h5>
                 <div className="ps-section__numbers">
                     <figure>
-                        <h3>$0</h3>
+                        <h3>{symbol}0</h3>
                         <span>List Fee</span>
                     </figure>
                     <figure>
-                        <h3>5%</h3>
+                        <h3>10%</h3>
                         <span>Final Value Fee</span>
                     </figure>
                 </div>
@@ -26,7 +29,7 @@ const VendorBestFrees = () => (
                     <figure>
                         <figcaption>Here's what you get for your fee:</figcaption>
                         <ul>
-                            <li>A worldwide community of more than 160 million shoppers.</li>
+                            <li>A community of more than 200 thousand shoppers.</li>
                             <li>
                                 Shipping labels you can print at home, with big discounts on
                                 postage.
@@ -43,7 +46,7 @@ const VendorBestFrees = () => (
                         <p>
                             We process payments with PayPal, an external payments platform that
                             allows you to process transactions with a variety of payment methods.
-                            Funds from PayPal sales on Martfury will be deposited into your PayPal
+                            Funds from PayPal sales on Shopmo will be deposited into your PayPal
                             account.
                         </p>
                     </figure>
