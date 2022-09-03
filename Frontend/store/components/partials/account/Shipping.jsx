@@ -1,8 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
+import currency from '~/utilities/currency-helper';
 import ModulePaymentOrderSummary from '~/components/partials/account/modules/ModulePaymentOrderSummary';
 
 const Shipping = () => {
+    const symbol = currency().symbol
+    const exRate = currency().exRate
     return (
         <div className="ps-checkout ps-section--shopping">
             <div className="container">
@@ -32,8 +35,8 @@ const Shipping = () => {
                                 <h4>Shipping Method</h4>
                                 <div className="ps-block__panel">
                                     <figure>
-                                        <small>International Shipping</small>
-                                        <strong>$20.00</strong>
+                                        <small>Express Shipping</small>
+                                        <strong>      {symbol +12 * exRate}</strong>
                                     </figure>
                                 </div>
                                 <div className="ps-block__footer">

@@ -6,14 +6,16 @@ import {
     setCompareItems,
     setWishlistTtems,
     setCartItems,
+    setShippingInfo
 } from '~/store/ecomerce/action';
 
 export default function useEcomerce() {
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
     const [cartItemsOnCookie] = useState(null);
-    const [cookies, setCookie] = useCookies(['cart']);
+    const [cookies, setCookie] = useCookies(['cart'],['shippingInfo']);
     const [products, setProducts] = useState(null);
+
     return {
         loading,
         cartItemsOnCookie,
@@ -163,7 +165,11 @@ export default function useEcomerce() {
         },
 
         saveShipping: (payload) => {
-            setCookie('shippingInfo', payload, { path: '/' });
+            let info = []
+            payload? info = payload:''
+            setCookie('shippingInfo', info, { path: '/' });
+            dispatch(setShippingInfo(info))
+           
         }
     };
 }

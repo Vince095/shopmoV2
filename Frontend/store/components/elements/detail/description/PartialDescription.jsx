@@ -1,8 +1,8 @@
 import React from 'react';
 
-const PartialDescription = () => (
+const PartialDescription = ({product}) => (
     <div className="ps-document">
-        <h5>Embodying the Raw, Wayward Spirit of Rock 'N' Roll</h5>
+        <h5>{console.log(product)}</h5>
         <p>
             Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn
             portable active stereo speaker takes the unmistakable look and sound

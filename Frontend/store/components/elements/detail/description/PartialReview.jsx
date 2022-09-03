@@ -2,12 +2,12 @@ import React from 'react';
 import { Rate } from 'antd';
 import Rating from '~/components/elements/Rating';
 
-const PartialReview = () => (
+const PartialReview = ({product}) => (
     <div className="row">
         <div className="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 ">
             <div className="ps-block--average-rating">
                 <div className="ps-block__header">
-                    <h3>4.00</h3>
+                    <h3>{product.review}</h3>
                     <Rating />
 
                     <span>1 Review</span>
@@ -21,21 +21,21 @@ const PartialReview = () => (
                 </div>
                 <div className="ps-block__star">
                     <span>4 Star</span>
-                    <div className="ps-progress" data-value="0">
+                    <div className="ps-progress" data-value="80">
                         <span></span>
                     </div>
                     <span>0</span>
                 </div>
                 <div className="ps-block__star">
                     <span>3 Star</span>
-                    <div className="ps-progress" data-value="0">
+                    <div className="ps-progress" data-value="50">
                         <span></span>
                     </div>
                     <span>0</span>
                 </div>
                 <div className="ps-block__star">
                     <span>2 Star</span>
-                    <div className="ps-progress" data-value="0">
+                    <div className="ps-progress" data-value="20">
                         <span></span>
                     </div>
                     <span>0</span>

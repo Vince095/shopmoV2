@@ -3,7 +3,10 @@ import { notification } from 'antd';
 import { connect } from 'react-redux';
 
 import { changeCurrency } from '../../../../store/setting/action';
+import currency from '~/utilities/currency-helper';
 
+let symbol = currency.symbol;
+let exRate = currency.exRate;
 class CurrencyDropdown extends Component {
     constructor(props) {
         super(props);
@@ -53,7 +56,7 @@ class CurrencyDropdown extends Component {
                             href="/"
                             onClick={e =>
                                 this.handleChangeCurrency(e, {
-                                    symbol: '€',
+                                    symbol: symbol,
                                     text: 'EURO',
                                 })
                             }>

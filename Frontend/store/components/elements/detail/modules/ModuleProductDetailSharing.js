@@ -8,9 +8,6 @@ const ModuleProductDetailSharing = () => (
         <a className="twitter" href="#">
             <i className="fa fa-twitter"></i>
         </a>
-        <a className="google" href="#">
-            <i className="fa fa-google-plus"></i>
-        </a>
         <a className="linkedin" href="#">
             <i className="fa fa-linkedin"></i>
         </a>

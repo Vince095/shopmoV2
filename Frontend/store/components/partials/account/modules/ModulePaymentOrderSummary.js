@@ -21,7 +21,7 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping }) => {
     let listItemsView, shippingView, totalView;
     let amount;
     if (products && products.length > 0) {
-        amount = calculateAmount(products) * exRate;
+        amount = (calculateAmount(products) * exRate).toFixed(2);
         listItemsView = products.map((item) => (
             <Link href="/" key={item.id}>
                 <a>
@@ -49,7 +49,7 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping }) => {
             <figure className="ps-block__total">
                 <h3>
                     Total
-                    <strong>{symbol}{parseInt(amount) + shippingPrice}.00</strong>
+                    <strong>{symbol}{amount + shippingPrice}</strong>
                 </h3>
             </figure>
         );

@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
+import Protected from '~/components/middleware/Protected';
+import { useSelector } from 'react-redux';
+import { baseUrl } from '~/repositories/Repository';
 
-class Addresses extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
-    render() {
+const Addresses = ()=>  {
+   
         const accountLinks = [
             {
                 text: 'Account Information',
@@ -41,6 +39,10 @@ class Addresses extends Component {
                 icon: 'icon-heart',
             },
         ];
+        
+        const selectUser =  useSelector(state => state.auth.user.data.user) ;
+        const check = localStorage.getItem('user')
+        const user = selectUser ? selectUser : check;
         return (
             <section className="ps-my-account ps-page--account">
                 <div className="container">
@@ -49,10 +51,10 @@ class Addresses extends Component {
                             <div className="ps-section__left">
                                 <aside className="ps-widget--account-dashboard">
                                     <div className="ps-widget__header">
-                                        <img src="/static/img/users/3.jpg" />
+                                        <img src={`${baseUrl}${user.avatar.url}`} />
                                         <figure>
-                                            <figcaption>Hello</figcaption>
-                                            <p>username@gmail.com</p>
+                                            <figcaption> {user.username}</figcaption>
+                                            <p>{user.email}</p>
                                         </figure>
                                     </div>
                                     <div className="ps-widget__content">
@@ -133,7 +135,6 @@ class Addresses extends Component {
                 </div>
             </section>
         );
-    }
 }
 
-export default Addresses;
+export default Protected(Addresses);

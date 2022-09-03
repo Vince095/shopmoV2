@@ -1,31 +1,35 @@
 import React from 'react';
+import currency from '~/utilities/currency-helper';
+
+const symbol = currency().symbol;
+const exRate = currency().exRate;
 
 const VendorFaqs = () => (
     <div className="ps-section--vendor ps-vendor-faqs">
         <div className="container">
             <div className="ps-section__header">
                 <p>FREQUENTLY ASKED QUESTIONS</p>
-                <h4>Here are some common questions about selling on Martfury</h4>
+                <h4>Here are some common questions about selling on shopmo</h4>
             </div>
             <div className="ps-section__content">
                 <div className="row">
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
                         <figure>
-                            <figcaption>How do fees work on Martfury?</figcaption>
+                            <figcaption>How do fees work on shopmo?</figcaption>
                             <p>
                                 Joining and starting a shop on Martfury is free. There are three
                                 basic selling fees: a listing fee, a transaction fee, and a payment
                                 processing fee.
                             </p>
                             <p>
-                                It costs USD 0.20 to publish a listing to the marketplace. A listing
+                                It costs {symbol}{0.20*exRate} to publish a listing to the marketplace. A listing
                                 lasts for four months or until the item is sold. Once an item sells,
                                 there is a 3.5% transaction fee on the sale price (not including
                                 shipping costs). If you accept payments with PayPal, there is also a
                                 payment processing fee based on their fee structure.
                             </p>
                             <p>
-                                Listing fees are billed for $0.20 USD, so if your bank’s currency is
+                                Listing fees are billed for {symbol}{0.20*exRate}, so if your bank’s currency is
                                 not USD, the amount may differ based on changes in the exchange
                                 rate.
                             </p>
@@ -37,7 +41,7 @@ const VendorFaqs = () => (
                                 (if you don’t already have one), set your shop location and
                                 currency, choose a shop name, create a listing, set a payment method
                                 (how you want to be paid), and finally set a billing method (how you
-                                want to pay your Martfuryfees).
+                                want to pay your shopmofees).
                             </p>
                         </figure>
                     </div>
@@ -46,20 +50,20 @@ const VendorFaqs = () => (
                             <figcaption>How do I get paid?</figcaption>
                             <p>
                                 If you accept payments with PayPal, funds from PayPal sales on
-                                Martfury will be deposited into your PayPal account. We encourage
+                                Shopmo will be deposited into your PayPal account. We encourage
                                 sellers to use a PayPal Business account and not a Personal account,
                                 as personal accounts are subject to monthly receiving limits and
                                 cannot accept payments from buyers that are funded by a credit card.
                             </p>
                             <p>
-                                It costs USD 0.20 to publish a listing to the marketplace. A listing
+                                It costs {symbol}{0.20*exRate} to publish a listing to the marketplace. A listing
                                 lasts for four months or until the item is sold. Once an item sells,
                                 there is a 3.5% transaction fee on the sale price (not including
                                 shipping costs). If you accept payments with PayPal, there is also a
                                 payment processing fee based on their fee structure.
                             </p>
                             <p>
-                                Listing fees are billed for $0.20 USD, so if your bank’s currency is
+                                Listing fees are billed for {symbol}{0.20*exRate}, so if your bank’s currency is
                                 not USD, the amount may differ based on changes in the exchange
                                 rate.
                             </p>
@@ -76,10 +80,10 @@ const VendorFaqs = () => (
                             </p>
                         </figure>
                         <figure>
-                            <figcaption>What can I sell on Martfury?</figcaption>
+                            <figcaption>What can I sell on Shopmo?</figcaption>
                         </figure>
                         <p>
-                            Martfury provides a marketplace for crafters, artists and collectors to
+                            Shopmo provides a marketplace for crafters, artists and collectors to
                             sell their handmade creations, vintage goods (at least 20 years old),
                             and both handmade and non-handmade crafting supplies.
                         </p>

@@ -15,6 +15,7 @@ const MyAccountPage = () => {
             text: 'Addresses',
         },
     ];
+     
     return (
         <PageContainer footer={<FooterDefault />} title="Address">
             <div className="ps-page--my-account">

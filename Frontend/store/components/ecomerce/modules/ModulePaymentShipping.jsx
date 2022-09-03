@@ -1,7 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
+import currency from '~/utilities/currency-helper';
 
 const ModulePaymentShipping = () => {
+    const symbol = currency().symbol
+    const exRate = currency().exRate;
     return (
         <>
             <div className="ps-block__panel">
@@ -24,7 +27,7 @@ const ModulePaymentShipping = () => {
             <div className="ps-block__panel">
                 <figure>
                     <small>International Shipping</small>
-                    <strong>$20.00</strong>
+                    <strong>      {symbol +12 * exRate}</strong>
                 </figure>
             </div>
         </>

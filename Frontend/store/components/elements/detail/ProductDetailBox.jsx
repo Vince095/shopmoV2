@@ -25,7 +25,7 @@ const ProductDetailBox = ({ product }) => (
         <div className="ps-product__content">
             <div className="row">
                 <div className="col-xl-9">
-                    <DescriptionBox />
+                    <DescriptionBox product={product}/>
                 </div>
                 <div className="col-xl-3">
                     <div className="ps-product__box">

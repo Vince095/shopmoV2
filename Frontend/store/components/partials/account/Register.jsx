@@ -87,7 +87,7 @@ const Register = () => {
         return (
             <div className="ps-my-account">
                 <div className="container">
-                    <Form
+                    <form
                         
                         className="ps-form--account"
                         onFinish={handleRegisterSubmit}
@@ -225,7 +225,7 @@ const Register = () => {
                                 </ul>
                             </div>
                         </div>
-                    </Form>
+                    </form>
                 </div>
             </div>
         );

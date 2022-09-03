@@ -33,7 +33,7 @@ const HomepageDefaultPage = () => {
                     title="Garden & Kitchen"
                 />
                 <HomeAds />
-                <DownLoadApp />
+                {/* <DownLoadApp /> */}
                 <NewArrivals collectionSlug="new-arrivals-products" />
                 <Newletters />
             </main>
