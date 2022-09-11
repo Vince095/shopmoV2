@@ -1,4 +1,5 @@
 import { actionTypes ,} from './action';
+import Repository from '~/repositories/Repository';
 
 export const initState = {
     isLoggedIn: false,
