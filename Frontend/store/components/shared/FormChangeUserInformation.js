@@ -1,22 +1,26 @@
 import React , {useState} from 'react';
 import { DatePicker, Form, Input, Radio } from 'antd';
 import useEcomerce from '~/hooks/useEcomerce';
+import { useSelector } from 'react-redux';
 import SubscribePopup from './SubscribePopup';
-import { Cookies } from 'react-cookie';
+import Cookies from 'js-cookie';
 
 const FormChangeUserInformation = () => {
     const userFound = localStorage.getItem('user'); 
+    const savedInfo = Cookies.get('shippingInfo')
     const user = JSON.parse(userFound).data.user;
+    const data = savedInfo? JSON.parse(savedInfo) : useSelector(state => state.ecomerce.shippingInfo);
+   
 
     const [userInfo, setUserInfo] = useState({
         username: user.username,
-        firstName: '',
-        lastName: '',
-        email:'',
-        contact:'',
-        address:'',
-        city:'',
-        country:''
+        firstName: data?.firstName,
+        lastName: data?.lastName,
+        email: user?.email,
+        contact: data?.contact,
+        address: data?.address,
+        city: data?.city,
+        country: data?.country
     })
     const {saveShipping} = useEcomerce();
     
@@ -32,8 +36,7 @@ const FormChangeUserInformation = () => {
     }
 
     const onChange= (e)=>{
-        setUserInfo({ ...userInfo, [e.target.name]: e.target.value })
-       
+        setUserInfo({ ...userInfo, [e.target.name]: e.target.value })  
     
     }
     
@@ -58,7 +61,7 @@ const FormChangeUserInformation = () => {
                             type="text"
                             name='username'
                             placeholder="Username or email address"
-                            value={user.username}
+                            value={userInfo?.username}
                             onChange={onChange}
                         
                          />
@@ -83,6 +86,7 @@ const FormChangeUserInformation = () => {
                                 placeholder="First name"
                                 name='firstName'
                                 onChange={onChange}
+                                value={userInfo.firstName}
                                 
                             />
 
@@ -105,6 +109,7 @@ const FormChangeUserInformation = () => {
                                         type="text"
                                         placeholder="Last name"
                                         name='lastName'
+                                        value={userInfo.lastName}
                                         onChange={onChange}
                              
                                      />
@@ -129,6 +134,7 @@ const FormChangeUserInformation = () => {
                                     type="text"
                                     name='contact'
                                     placeholder="Phone Number"
+                                    value={userInfo.contact}
                                     onChange={onChange}
                                 
                             />
@@ -151,7 +157,7 @@ const FormChangeUserInformation = () => {
                                     type="text"
                                     name='email'
                                     placeholder="Email Address"
-                                    value ={user.email}
+                                    value ={userInfo.email}
                                     onChange={onChange}
                                     
                             />
@@ -175,6 +181,7 @@ const FormChangeUserInformation = () => {
                                 type="text"
                                 name='address'
                                 placeholder="Address"
+                                value={userInfo.address}
                                 onChange={onChange}
                                 
                             />
@@ -197,6 +204,7 @@ const FormChangeUserInformation = () => {
                                     type="text"
                                     placeholder="City"
                                     name='city'
+                                    value={userInfo.city}
                                     onChange={onChange}
                                     
                             />
@@ -219,6 +227,7 @@ const FormChangeUserInformation = () => {
                                 type="text"
                                 name="country"
                                 placeholder="Country"
+                                value={userInfo.country}
                                 onChange={onChange}
                                
                             />

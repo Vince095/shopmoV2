@@ -169,16 +169,6 @@ class Login extends Component {
                                     </li>
                                     <li>
                                         <a
-                                            className="google"
-                                            href="#"
-                                            onClick={e =>
-                                                this.handleFeatureWillUpdate(e)
-                                            }>
-                                            <i className="fa fa-google-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
                                             className="twitter"
                                             href="#"
                                             onClick={e =>

@@ -23,11 +23,7 @@ const FooterWidgets = () => (
                             <i className="fa fa-twitter"></i>
                         </a>
                     </li>
-                    <li>
-                        <a className="google-plus" href="#">
-                            <i className="fa fa-google-plus"></i>
-                        </a>
-                    </li>
+                   
                     <li>
                         <a className="instagram" href="#">
                             <i className="fa fa-instagram"></i>

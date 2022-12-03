@@ -1,13 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Radio } from 'antd';
 import { useRouter } from 'next/router';
+import PaystackPop from '@paystack/inline-js'
+import { calculateAmount } from '~/utilities/ecomerce-helpers';
+import useEcomerce from '~/hooks/useEcomerce';
+import { connect } from 'react-redux';
+import currency from '~/utilities/currency-helper';
 
-const ModulePaymentMethods = () => {
+const ModulePaymentMethods = ({ecomerce}) => {
     const Router = useRouter();
     const [method, setMethod] = useState(1);
+    const { products, getProducts } = useEcomerce();
+    const userFound = localStorage.getItem('user'); 
+    const user = JSON.parse(userFound).data.user;
+    const exRate = currency().exRate;
+    const shipping = currency().shipping
+
+
+    useEffect(() => {
+        if (ecomerce.cartItems) {
+            getProducts(ecomerce.cartItems, 'cart');
+        }
+    }, [ecomerce]);
 
     function handleChangeMethod(e) {
         setMethod(e.target.value); //e.target.value
+    }
+    
+
+    const payWithPaystack = (e)=>{
+        e.preventDefault();
+        const paystack = new PaystackPop()
+
+        let email = user.email
+        let firstname = user.username
+        let amount = (calculateAmount(products)*exRate + shipping) * 100
+
+
+
+
+        paystack.newTransaction({
+            key: "pk_test_2800bd340ce53a48fc899c22872570408eff55da",
+            amount: amount,
+            email,
+            firstname,
+            onSuccess(transaction){
+                let message = `Payment complete! Refrence ${transaction.refrence}`
+                Router.push('/account/payment-success');
+                alert(message)
+            }
+
+
+        }) 
     }
 
     function handleSubmit(e) {
@@ -25,6 +69,7 @@ const ModulePaymentMethods = () => {
                         value={method}>
                         <Radio value={1}>Visa / Master Card</Radio>
                         <Radio value={2}>Paypal</Radio>
+                        <Radio value={3}>Paystack</Radio>
                     </Radio.Group>
                 </div>
                 <div className="ps-block__content">
@@ -67,7 +112,7 @@ const ModulePaymentMethods = () => {
                                 </button>
                             </div>
                         </div>
-                    ) : (
+                    ) : method === 2 ?(
                         <div className="ps-block__tab">
                             <a
                                 className="ps-btn"
@@ -76,6 +121,12 @@ const ModulePaymentMethods = () => {
                                 Process with Paypal
                             </a>
                         </div>
+                    ):(
+                        <div className="ps-block__tab ps-btn" type="submit" onClick={ payWithPaystack }>
+                        
+                            Process with Paystack
+                       
+                    </div>
                     )}
                 </div>
             </div>
@@ -83,4 +134,4 @@ const ModulePaymentMethods = () => {
     );
 };
 
-export default ModulePaymentMethods;
+export default connect((state) => state)(ModulePaymentMethods);

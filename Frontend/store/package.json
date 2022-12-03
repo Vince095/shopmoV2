@@ -6,9 +6,10 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
-        "start": "next start -p 3003"
+        "start": "next start"
     },
     "dependencies": {
+        "@paystack/inline-js": "^2.12.6",
         "antd": "^4.5.2",
         "axios": "^0.19.2",
         "es6-promise": "^4.2.8",
@@ -36,5 +37,4 @@
         "sass": "^1.45.2"
     },
     "proxy": "http://localhost:1337"
-    
 }

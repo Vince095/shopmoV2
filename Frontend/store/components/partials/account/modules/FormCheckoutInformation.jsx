@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { Form, Input } from 'antd';
+import Cookies from 'js-cookie';
 
 const FormCheckoutInformation =() => {
     
@@ -10,6 +11,12 @@ const FormCheckoutInformation =() => {
     const [postalCode, setPostalCode] = useState()
     const [phoneNo, setPhoneNo] = useState()
     const [country, setCountry] = useState()
+
+    const userFound = localStorage.getItem('user'); 
+    const savedInfo = Cookies.get('shippingInfo')
+    const user = JSON.parse(userFound).data.user;
+    const data = savedInfo? JSON.parse(savedInfo) : useSelector(state => state.ecomerce.shippingInfo);
+   
 
    const handleLoginSubmit = () => {
         Router.push('/account/shipping');
@@ -65,6 +72,7 @@ const FormCheckoutInformation =() => {
                                     className="form-control"
                                     type="text"
                                     placeholder="First Name"
+                                    
                                 />
                             </Form.Item>
                         </div>
