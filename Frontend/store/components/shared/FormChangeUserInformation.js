@@ -9,7 +9,7 @@ const FormChangeUserInformation = () => {
     const userFound = localStorage.getItem('user'); 
     const savedInfo = Cookies.get('shippingInfo')
     const user = JSON.parse(userFound).data.user;
-    const data = savedInfo? JSON.parse(savedInfo) : useSelector(state => state.ecomerce.shippingInfo);
+    const data = savedInfo ? JSON.parse(savedInfo) : useSelector(state => state.ecomerce.shippingInfo);
    
 
     const [userInfo, setUserInfo] = useState({
