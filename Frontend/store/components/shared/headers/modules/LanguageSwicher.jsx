@@ -8,26 +8,25 @@ const  LanguageSwicher = ()=> {
     const countryList = [
         {
             id: 0,
+            name: 'Nigeria',
+            flag : '/static/img/flag/ng.svg'
+        },
+        {
+            id: 1,
             name: 'Lesotho',
             flag : '/static/img/flag/ls.svg'
         },
         {
-            id: 1,
+            id: 2,
             name: 'South Africa',
             flag : '/static/img/flag/za.svg'
         },
-        {
-            id: 2,
-            name: 'Nigeria',
-            flag : '/static/img/flag/ng.svg'
-        },
-
+       
     ]
     
    const handleFeatureWillUpdate =(e) => {
 
         e.preventDefault();
-        console.log(no)
 
         notification.open({
             message: 'Opp! Something went wrong.',
