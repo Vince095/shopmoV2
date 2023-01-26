@@ -59,7 +59,7 @@ const HeaderAutoPart = () => {
         'Lighting',
         'Accessories',
     ];
-    const auth = useSelector(state => state.auth)
+    const auth = useSelector((state) => state.auth);
     // views
     const menuCategoriesView = menuAutopartCategories.map((item) => (
         <li key={item}>
@@ -77,8 +77,8 @@ const HeaderAutoPart = () => {
                 <div className="container">
                     <div className="header__left">
                         <p>
-                            <strong>FREE SHIPPING</strong> for all orders over
-                            M 2000
+                            <strong>FREE SHIPPING</strong> for all orders over M
+                            2000
                         </p>
                     </div>
                     <div className="header__right">
@@ -90,7 +90,7 @@ const HeaderAutoPart = () => {
                             </li>
                             <li>
                                 <Link href="/account/order-tracking">
-                                    <a>Tract your order</a>
+                                    <a>Track your order</a>
                                 </Link>
                             </li>
                             <li>
@@ -98,7 +98,7 @@ const HeaderAutoPart = () => {
                             </li>
                             <li>
                                 {/* <AccountQuickLinks isLoggedIn={false} /> */}
-                                 {auth.isLoggedIn &&
+                                {auth.isLoggedIn &&
                                 Boolean(auth.isLoggedIn) === true ? (
                                     <AccountQuickLinks isLoggedIn={true} />
                                 ) : (
