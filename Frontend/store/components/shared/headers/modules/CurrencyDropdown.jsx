@@ -39,6 +39,18 @@ class CurrencyDropdown extends Component {
                 )}
 
                 <ul className="ps-dropdown-menu">
+                <li>
+                        <a
+                            href="/"
+                            onClick={e =>
+                                this.handleChangeCurrency(e, {
+                                    symbol: 'M',
+                                    text: 'LSL',
+                                })
+                            }>
+                            LSL
+                        </a>
+                    </li>
                     <li>
                         <a
                             href="/"
