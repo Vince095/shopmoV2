@@ -24,7 +24,7 @@ const Register = () => {
     const { username, email, password } = user;
 
 
-    const handleRegisterSubmit = async e => {
+    const handleRegisterSubmit = async (e) => {
        // e.preventDefault();
 
         const formData = new FormData();
@@ -38,9 +38,9 @@ const Register = () => {
                 
         let uploadImage = await AuthRepository.uploadImage(formData1)
         let uploadRespose = JSON.parse(uploadImage)
-    
-        let obj = {...user,'avatar':{'id': uploadRespose.data[0].id}}
-      
+        
+        let obj = {...user,'avatar':{'id': uploadRespose?.data[0].id}}
+        console.log("Its ok");
         console.log( obj)
 
         let response = await AuthRepository.registerUser(obj)
@@ -50,7 +50,7 @@ const Register = () => {
             console.log(data)
             notification.open({
                 message: data.name,
-                description: data.message ,
+                description: data.message[0].messages[0].message ,
                 duration: 5000,})
         }else{
               Router.push('/')
@@ -87,10 +87,10 @@ const Register = () => {
         return (
             <div className="ps-my-account">
                 <div className="container">
-                    <form
+                    <Form
                         
                         className="ps-form--account"
-                        onFinish={handleRegisterSubmit}
+                        onFinish={handleRegisterSubmit.bind(this)}
                         encType="multipart/form-data">
                         <ul className="ps-tab-list">
                             <li>
@@ -225,7 +225,7 @@ const Register = () => {
                                 </ul>
                             </div>
                         </div>
-                    </form>
+                    </Form>
                 </div>
             </div>
         );

@@ -66,9 +66,7 @@ class AuthRepository {
 
         const config = {
             headers: {
-                'Content-Type': 'multipart/form-data',
-                'Authorization': ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjU4NzU1MTE3LCJleHAiOjE2NjEzNDcxMTd9.EXMbRpHtQ3XRJkMCrLmoPzHueCYVvDqps0S-eJK7x8o'
-            
+                'Content-Type': 'multipart/form-data'
             }
         }
 
