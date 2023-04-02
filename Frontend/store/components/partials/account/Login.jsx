@@ -43,7 +43,7 @@ class Login extends Component {
         let data = JSON.parse(res)
         
         if(data.message ){
-           //this.props.dispatch(loginFailed())
+           this.props.dispatch(loginFailed())
 
            notification.open({
             message: 'Opp! Something went wrong.',

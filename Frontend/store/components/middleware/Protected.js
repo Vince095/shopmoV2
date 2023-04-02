@@ -19,7 +19,7 @@ const Protected = (WrappedComponent) => {
             message: 'opps, looks like your not signed in',
             description: 'Please login first to access this resource' ,
             duration: 500,})
-        Router.replace("/");
+        Router.replace("/account/login");
         return null;
       }
 

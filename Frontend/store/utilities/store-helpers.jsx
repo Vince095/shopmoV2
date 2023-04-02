@@ -1,8 +1,4 @@
-/*
- * React template helpers
- * Author: Nouthemes
- * Developed: diaryforlife
- * */
+
 
 import React from 'react';
 import StoreRepository from '~/repositories/StoreRepository';

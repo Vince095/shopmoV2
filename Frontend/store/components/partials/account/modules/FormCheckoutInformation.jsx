@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { Form, Input } from 'antd';
+import { useSelector } from 'react-redux';
 import Cookies from 'js-cookie';
+
 
 const FormCheckoutInformation =() => {
     

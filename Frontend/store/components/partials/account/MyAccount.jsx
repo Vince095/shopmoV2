@@ -6,7 +6,8 @@ import Protected from '~/components/middleware/Protected';
 const MyAccount = ()=>{
     const selectUser =  useSelector(state => state.auth.user.data.user) ;
     const check = localStorage.getItem('user')
-    const user = selectUser ? selectUser : check;
+    const foundUser = JSON.parse(check)
+    const user = selectUser ? selectUser : foundUser.data.user;
     
         return (
             
