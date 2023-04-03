@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Slider, Checkbox } from 'antd';
 import { useRouter } from 'next/router';
+import currency from '~/utilities/currency-helper';
 
 const WidgetShopFilterByPriceRange = () => {
     const Router = useRouter();
     const [min, setMin] = useState(0);
     const [max, setMax] = useState(2000);
+    let symbol = currency().symbol;
 
     function handleChangeRange(value) {
         setMin(value[0]);
@@ -29,7 +31,7 @@ const WidgetShopFilterByPriceRange = () => {
                     onAfterChange={(e) => handleChangeRange(e)}
                 />
                 <p>
-                    Price: ${min} - $ {max}
+                    Price: {symbol}{min} - {symbol} {max}
                 </p>
             </figure>
         </aside>

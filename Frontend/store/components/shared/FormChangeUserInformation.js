@@ -14,13 +14,13 @@ const FormChangeUserInformation = () => {
 
     const [userInfo, setUserInfo] = useState({
         username: user.username,
-        firstName: data?.firstName,
-        lastName: data?.lastName,
-        email: user?.email,
-        contact: data?.contact,
-        address: data?.address,
-        city: data?.city,
-        country: data?.country
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: user.email,
+        contact: data.contact,
+        address: data.address,
+        city: data.city,
+        country: data.country
     })
     const {saveShipping} = useEcomerce();
     
@@ -61,7 +61,7 @@ const FormChangeUserInformation = () => {
                             type="text"
                             name='username'
                             placeholder="Username or email address"
-                            value={userInfo?.username}
+                            value={userInfo.username}
                             onChange={onChange}
                         
                          />

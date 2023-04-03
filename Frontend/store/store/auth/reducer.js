@@ -3,7 +3,7 @@ import Repository from '~/repositories/Repository';
 
 export const initState = {
     isLoggedIn: false,
-    user: {},
+    user:{} ,
 };
 
 function reducer(state = initState, actions ) {
