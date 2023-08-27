@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = ({env})=> ( {
     //
     graphql: {
       endpoint: '/graphql',
@@ -22,4 +22,4 @@ module.exports = {
         },
       },
     },
-  };
+  });

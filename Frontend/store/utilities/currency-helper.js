@@ -10,7 +10,7 @@ const currency = location => {
         symbol = '$',
         tel = '266-5630-1591';
         
-    let country = 'Lesotho';    
+    let country = 'Nigeria';    
 
     for(let item in data){
         if(item === "country"){

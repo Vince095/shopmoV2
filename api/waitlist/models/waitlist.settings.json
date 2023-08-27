@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "waitlists",
+  "info": {
+    "name": "waitlist"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "surname": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "biginteger"
+    },
+    "email": {
+      "type": "email",
+      "unique": true,
+      "required": true
+    },
+    "role": {
+      "type": "string"
+    }
+  }
+}

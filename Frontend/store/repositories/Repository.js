@@ -1,7 +1,7 @@
 import axios from 'axios';
-const baseDomain = 'http://localhost:1337'; // API for products
-export const basePostUrl = 'http://localhost:1337'; // API for post
-export const baseStoreURL = 'http://localhost:1337'; // API for vendor(store)
+const baseDomain = 'https://shop-mo-m8yc.onrender.com'; // API for products
+export const basePostUrl = 'https://shop-mo-m8yc.onrender.com'; // API for post
+export const baseStoreURL = 'https://shop-mo-m8yc.onrender.com'; // API for vendor(store)
 
 export const customHeaders = {
     Accept: 'application/json',
