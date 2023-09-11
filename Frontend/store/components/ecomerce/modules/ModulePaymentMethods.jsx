@@ -7,6 +7,7 @@ import useEcomerce from '~/hooks/useEcomerce';
 import { connect } from 'react-redux';
 import currency from '~/utilities/currency-helper';
 
+
 const ModulePaymentMethods = ({ecomerce}) => {
     const Router = useRouter();
     const [method, setMethod] = useState(1);
@@ -21,6 +22,9 @@ const ModulePaymentMethods = ({ecomerce}) => {
         if (ecomerce.cartItems) {
             getProducts(ecomerce.cartItems, 'cart');
         }
+        if (typeof window !== 'undefined') {
+            
+          }
     }, [ecomerce]);
 
     function handleChangeMethod(e) {
